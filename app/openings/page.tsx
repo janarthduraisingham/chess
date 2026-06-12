@@ -52,7 +52,7 @@ export default function Openings() {
               ))
             }
           </div>
-          <ol className="list-decimal ml-6 marker:text-2xl text:base">
+          <ol className="list-decimal ml-6 marker:text-2xl text:base text-left">
             {filtered.map(o => (
               <li key={o.id}>
                 <span className='font-bold text-2xl'>{o.name}</span> ({o.colour})
