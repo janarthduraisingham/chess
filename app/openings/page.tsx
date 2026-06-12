@@ -34,20 +34,20 @@ export default function Openings() {
               ))
             }
           </div>
-          <ul>
+          <ol>
             {filtered.map(o => (
               <li key={o.id}>
-                {o.name} ({o.colour})
+                <span className='font-bold'>{o.name}</span> ({o.colour})
                 <ul className='ml-6'>
-                  <li>Parent opening: {o.parent}</li>
+                  <li><span className='underline'>Parent opening:</span> {o.parent}</li>
                   <ul className='ml-6'>
-                    Pros: {o.notes.pros} <br />
-                    Cons: {o.notes.cons}
+                    <span className='underline'>Pros:</span> {o.notes.pros} <br />
+                    <span className='underline'>Cons:</span> {o.notes.cons}
                   </ul>
                 </ul> 
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </main>
     </div>
