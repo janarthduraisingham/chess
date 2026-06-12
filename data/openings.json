@@ -4,7 +4,7 @@
         "name": "Sicilian Defence",
         "colour": "black",
         "parent": "King's Pawn Game",
-        "notes": {"pros": "High rated opening for black",
+        "notes": {"pros": "High scoring opening for black",
                   "cons": "Deep theory, many variations"}
     },
 
@@ -24,5 +24,14 @@
         "parent": "Flank Pawn Opening",
         "notes": {"pros": "High transpositional potential",
                   "cons": null}
+    },
+
+    {
+        "id": "dutch-defence",
+        "name": "Dutch Defence",
+        "colour": "black",
+        "parent": "Queen's Pawn Game",
+        "notes": {"pros": "High scoring reply to 1.d4",
+                  "cons": "Many variations"}
     }
 ]

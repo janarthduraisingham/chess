@@ -14,7 +14,7 @@ export default function Home() {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-md text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Welcome to chessmate. <br /> <span className='font-bold text-4xl'>Your move.</span>
+            Welcome to chessmate <br /> <span className='font-bold text-4xl'>Your move.</span>
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Janarth Duraisingham {" "} <br />
