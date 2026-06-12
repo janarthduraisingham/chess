@@ -39,7 +39,11 @@ export default function Openings() {
               <li key={o.id}>
                 {o.name} ({o.colour})
                 <ul className='ml-6'>
-                  <li>{o.colour}</li>
+                  <li>Parent opening: {o.parent}</li>
+                  <ul className='ml-6'>
+                    Pros: {o.notes.pros} <br />
+                    Cons: {o.notes.cons}
+                  </ul>
                 </ul> 
               </li>
             ))}
