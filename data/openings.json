@@ -14,7 +14,7 @@
         "colour": "white",
         "parent": "Queen's Pawn Game",
         "notes": {"pros": "Set-up opening, so unlikely to get interrupted",
-                  "cons": null} 
+                  "cons": "Vulnerable to c5"} 
     },
 
     {
