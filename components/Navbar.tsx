@@ -7,6 +7,7 @@ export default function Navbar() {
                 <Link href='/' className='font-bold text-lg'>Home</Link>
                 <Link href='/openings'>Openings</Link>
                 <Link href='/reading'>Reading</Link>
+                <Link href='/ratings'>Ratings</Link>
             </div>
         </nav>
     )
