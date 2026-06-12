@@ -4,7 +4,7 @@ type Stats = {
     chess_rapid: { last: {rating: number}}
 };
 
-export default async function getRatings(): Promise<Stats> {
-    const result = await fetch("https://api.chess.com/pub/player/jd12473/stats");
+export default async function getRatings(user: string): Promise<Stats> {
+    const result = await fetch(`https://api.chess.com/pub/player/${user}/stats`);
     return result.json();
 }
