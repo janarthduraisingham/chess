@@ -21,7 +21,7 @@
         "id": "english-opening",
         "name": "English Opening",
         "colour": "white",
-        "parent": null,
+        "parent": "Flank Pawn Opening",
         "notes": {"pros": "High transpositional potential",
                   "cons": null}
     }

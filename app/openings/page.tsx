@@ -5,8 +5,8 @@ import { Opening, openings } from '@/lib/openings';
 type FilterColour = Opening['colour'] | 'all';
 const filterColours = ['all', 'white', 'black'] as const;
 
-type FilterParent = Opening['parent'] | 'all';
-const filterParents = ['all', 'King\'s Pawn Game', 'Queen\'s Pawn Game'] as const;
+type FilterParent = Opening['parent'];
+const filterParents = ['all', 'King\'s Pawn Game', 'Queen\'s Pawn Game', 'Flank Pawn Opening'] as const;
 
 export default function Openings() {
 
@@ -59,8 +59,8 @@ export default function Openings() {
                 <div className='ml-6'>
                   <div><span className='underline'>Parent opening:</span> {o.parent}</div>
                   <div className='ml-6'>
-                    <span className='underline text-xl'>Pros:</span> {o.notes.pros} <br />
-                    <span className='underline text-xl'>Cons:</span> {o.notes.cons}
+                    <span className='font-bold text-xl'>Pros:</span> {o.notes.pros} <br />
+                    <span className='font-bold text-xl'>Cons:</span> {o.notes.cons}
                   </div>
                 </div> 
               </li>
