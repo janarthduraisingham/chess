@@ -2,12 +2,18 @@
     {
         "id": "sicilian-defence",
         "name": "Sicilian Defence",
-        "colour": "black"
+        "colour": "black",
+        "parent": "King's Pawn Game",
+        "notes": {"pros": "high rated opening for black",
+                  "cons": "deep theory"}
     },
 
     {
         "id": "london-system",
         "name": "London System",
-        "colour": "white"  
+        "colour": "white",
+        "parent": "Queen's Pawn Game",
+        "notes": {"pros": "set-up opening, unlikely to get interrupted",
+                  "cons": null} 
     }
 ]
