@@ -3,14 +3,19 @@ import {  useState  } from 'react';
 import { Opening, openings } from '@/lib/openings';
 
 type FilterColour = Opening['colour'] | 'all';
-const filterColours = ['all', 'white', 'black'] as const
+const filterColours = ['all', 'white', 'black'] as const;
+
+type FilterParent = Opening['parent'] | 'all';
+const filterParents = ['all', 'King\'s Pawn Game', 'Queen\'s Pawn Game'] as const;
 
 export default function Openings() {
 
   const [colour, setColour] = useState<FilterColour>('all');
+  const [parent, setParent] = useState<FilterParent>('all');
 
   const filtered = openings.filter(o => {
     if (colour !== 'all' && colour !== o.colour) return false;
+    if (parent !== 'all' && parent !== o.parent) return false;
     return true
   })
 
@@ -29,7 +34,20 @@ export default function Openings() {
                   className={colour == c ? 'font-bold underline' : ''}
                   onClick={() => setColour(c)}  
                   >
-                  {c}
+                  {c} 
+                </button>
+              ))
+            }
+          </div>
+          <div>
+            {
+              filterParents.map(c => (
+                <button
+                  key={c}
+                  className={parent == c ? 'font-bold underline' : ''}
+                  onClick={() => setParent(c)}  
+                  >
+                  {c} 
                 </button>
               ))
             }
