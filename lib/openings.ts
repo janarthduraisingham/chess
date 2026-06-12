@@ -3,7 +3,7 @@ import data from '@/data/openings.json';
 export type Opening = {
     id: string;
     name: string;
-    colour: string;
+    colour: 'white' | 'black';
 };
 
 export const openings = (data.sort() as Opening[])
