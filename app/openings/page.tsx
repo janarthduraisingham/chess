@@ -34,21 +34,21 @@ export default function Openings() {
               ))
             }
           </div>
-          <ol>
+          <ol className="list-decimal ml-6">
             {filtered.map(o => (
               <li key={o.id}>
                 <span className='font-bold'>{o.name}</span> ({o.colour})
-                <ul className='ml-6'>
-                  <li><span className='underline'>Parent opening:</span> {o.parent}</li>
-                  <ul className='ml-6'>
+                <div className='ml-6'>
+                  <div><span className='underline'>Parent opening:</span> {o.parent}</div>
+                  <div className='ml-6'>
                     <span className='underline'>Pros:</span> {o.notes.pros} <br />
                     <span className='underline'>Cons:</span> {o.notes.cons}
-                  </ul>
-                </ul> 
+                  </div>
+                </div> 
               </li>
-            ))}
-          </ol>
-        </div>
+               ))}
+            </ol>
+          </div>
       </main>
     </div>
   );
