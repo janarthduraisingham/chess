@@ -52,15 +52,15 @@ export default function Openings() {
               ))
             }
           </div>
-          <ol className="list-decimal ml-6">
+          <ol className="list-decimal ml-6 marker:text-2xl text:base">
             {filtered.map(o => (
               <li key={o.id}>
-                <span className='font-bold'>{o.name}</span> ({o.colour})
+                <span className='font-bold text-2xl'>{o.name}</span> ({o.colour})
                 <div className='ml-6'>
                   <div><span className='underline'>Parent opening:</span> {o.parent}</div>
                   <div className='ml-6'>
-                    <span className='underline'>Pros:</span> {o.notes.pros} <br />
-                    <span className='underline'>Cons:</span> {o.notes.cons}
+                    <span className='underline text-xl'>Pros:</span> {o.notes.pros} <br />
+                    <span className='underline text-xl'>Cons:</span> {o.notes.cons}
                   </div>
                 </div> 
               </li>
