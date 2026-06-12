@@ -3,6 +3,7 @@ import {  useState  } from 'react';
 import { Opening, openings } from '@/lib/openings';
 
 type FilterColour = Opening['colour'] | 'all';
+const filterColours = ['all', 'white', 'black'] as const
 
 export default function Openings() {
 
@@ -22,7 +23,7 @@ export default function Openings() {
           </h1>
           <div>
             {
-              ['all', 'white', 'black'].map(c => (
+              filterColours.map(c => (
                 <button
                   key={c}
                   className={colour == c ? 'font-bold underline' : ''}
