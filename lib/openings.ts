@@ -6,4 +6,5 @@ export type Opening = {
     colour: string;
 };
 
-export const openings = data as Opening[]
+export const openings = (data.sort() as Opening[])
+    .sort((a, b) => a.id.localeCompare(b.id))
