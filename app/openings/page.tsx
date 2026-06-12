@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { openings } from '@/lib/openings.tsx';
 
 export default function Openings() {
   return (
@@ -8,6 +8,13 @@ export default function Openings() {
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             Openings.
           </h1>
+            <ul>
+              {openings.map(o => (
+                <li id={o.id}>
+                  {o.name}    
+                </li>
+              ))}
+            </ul>
         </div>
       </main>
     </div>
