@@ -3,14 +3,19 @@ import {  useState  } from 'react';
 import { Opening, openings } from '@/lib/openings';
 
 type FilterColour = Opening['colour'] | 'all';
-const filterColours = ['all', 'white', 'black'] as const
+const filterColours = ['all', 'white', 'black'] as const;
+
+type FilterParent = Opening['parent'] | 'all';
+const filterParents = ['all', 'King\'s Pawn Game', 'Queen\'s Pawn Game'] as const;
 
 export default function Openings() {
 
   const [colour, setColour] = useState<FilterColour>('all');
+  const [parent, setParent] = useState<FilterParent>('all');
 
   const filtered = openings.filter(o => {
     if (colour !== 'all' && colour !== o.colour) return false;
+    if (parent !== 'all' && parent !== o.parent) return false;
     return true
   })
 
@@ -26,25 +31,42 @@ export default function Openings() {
               filterColours.map(c => (
                 <button
                   key={c}
-                  className={colour == c ? 'font-bold underline' : ''}
+                  className={`px-4 py-2 text-white ${colour == c ? 'font-bold underline bg-green-700' : 'bg-green-900'}`}
                   onClick={() => setColour(c)}  
                   >
-                  {c}
+                  {c} 
                 </button>
               ))
             }
           </div>
-          <ul>
+          <div>
+            {
+              filterParents.map(c => (
+                <button
+                  key={c}
+                  className={`px-4 py-2 text-white ${parent == c ? 'font-bold underline bg-green-700' : 'bg-green-900'}`}
+                  onClick={() => setParent(c)}  
+                  >
+                  {c} 
+                </button>
+              ))
+            }
+          </div>
+          <ol className="list-decimal ml-6">
             {filtered.map(o => (
               <li key={o.id}>
-                {o.name} ({o.colour})
-                <ul className='ml-6'>
-                  <li>{o.colour}</li>
-                </ul> 
+                <span className='font-bold'>{o.name}</span> ({o.colour})
+                <div className='ml-6'>
+                  <div><span className='underline'>Parent opening:</span> {o.parent}</div>
+                  <div className='ml-6'>
+                    <span className='underline'>Pros:</span> {o.notes.pros} <br />
+                    <span className='underline'>Cons:</span> {o.notes.cons}
+                  </div>
+                </div> 
               </li>
-            ))}
-          </ul>
-        </div>
+               ))}
+            </ol>
+          </div>
       </main>
     </div>
   );
