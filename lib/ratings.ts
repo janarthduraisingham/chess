@@ -5,6 +5,8 @@ type Stats = {
 };
 
 export default async function getRatings(user: string): Promise<Stats> {
-    const result = await fetch(`https://api.chess.com/pub/player/${user}/stats`);
+    const result = await fetch(`https://api.chess.com/pub/player/${user}/stats`,
+        { next: { revalidate: 600}}
+    );
     return result.json();
 }
