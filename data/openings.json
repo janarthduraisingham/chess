@@ -4,8 +4,8 @@
         "name": "Sicilian Defence",
         "colour": "black",
         "parent": "King's Pawn Game",
-        "notes": {"pros": "high rated opening for black",
-                  "cons": "deep theory"}
+        "notes": {"pros": "High scoring opening for black",
+                  "cons": "Deep theory, many variations"}
     },
 
     {
@@ -13,7 +13,25 @@
         "name": "London System",
         "colour": "white",
         "parent": "Queen's Pawn Game",
-        "notes": {"pros": "set-up opening, unlikely to get interrupted",
-                  "cons": null} 
+        "notes": {"pros": "Set-up opening, so unlikely to get interrupted",
+                  "cons": "Vulnerable to c5"} 
+    },
+
+    {
+        "id": "english-opening",
+        "name": "English Opening",
+        "colour": "white",
+        "parent": "Flank Pawn Opening",
+        "notes": {"pros": "High transpositional potential",
+                  "cons": null}
+    },
+
+    {
+        "id": "dutch-defence",
+        "name": "Dutch Defence",
+        "colour": "black",
+        "parent": "Queen's Pawn Game",
+        "notes": {"pros": "High scoring reply to 1.d4",
+                  "cons": "Many variations"}
     }
 ]
