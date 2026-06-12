@@ -1,4 +1,4 @@
-import { openings } from '@/lib/openings.tsx';
+import { openings } from '@/lib/openings';
 
 export default function Openings() {
   return (
@@ -10,8 +10,11 @@ export default function Openings() {
           </h1>
             <ul>
               {openings.map(o => (
-                <li id={o.id}>
-                  {o.name}    
+                <li key={o.id}>
+                  {o.name} ({o.colour})
+                  <ul className='ml-6'>
+                    <li>{o.colour}</li>
+                  </ul> 
                 </li>
               ))}
             </ul>
