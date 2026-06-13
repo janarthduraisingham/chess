@@ -1,19 +1,24 @@
 'use client';
 import { user, ratings, plotData, recentGames, firstYear, recentYear } from "@/lib/stats";
-import { Line, LineChart } from 'recharts';
+import { Line, LineChart, XAxis, YAxis } from 'recharts';
 
 
 // Plot
-const type = 'rapid';
+const time_class = 'blitz';
 
 function Plotter() {
   const Data = plotData.filter(i => {
-    if (type !== i.time_class) return false;
+    if (time_class !== i.time_class) return false;
     return true;
 }); 
   return (
     <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 600}} responsive data={Data}>
       <Line dataKey='rating' />
+      <XAxis dataKey='date'
+             label={{value: 'Date', position: 'insideBottom'}}
+      />
+      <YAxis label={{value: `${time_class} Rating (ELO)`, angle: -90, position: 'insideLeft'}}/>
+      {/* <Legend /> */}
     </LineChart>
   )
 } 
