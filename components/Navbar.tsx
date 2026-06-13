@@ -5,9 +5,9 @@ export default function Navbar() {
         <nav className='flex items-center justify-between px-6 py-4 border-b'>
             <div className='flex gap-6'>
                 <Link href='/' className='font-bold text-lg'>chessmate.</Link>
-                <Link href='/openings'>Openings.</Link>
+                <Link href='/openings'>Openings journal.</Link>
                 <Link href='/reading'>Reading.</Link>
-                <Link href='/ratings'>Ratings.</Link>
+                <Link href='/ratings'>Stats.</Link>
             </div>
         </nav>
     )
