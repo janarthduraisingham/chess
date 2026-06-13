@@ -1,35 +1,19 @@
-import { getRatings, getGameMonths, getMonthGames } from "@/lib/stats";
+'use client';
+import { user, ratings, plotData, recentGames, firstYear, recentYear } from "@/lib/stats";
+import { Line, LineChart } from 'recharts';
 
-export default async function Ratings() {
-  const user = 'jd12473';
-  const ratings = await getRatings(user);
-  const archives = await getGameMonths(user);
 
-  const gameYears = archives.archives.map(a => (
-    a.slice(-7)
-  ))
+// Plot
 
-  const recentYear = gameYears.sort(
-    ((a, b) => b.localeCompare(a))
-  )[0]
+function Plotter() {
+  return (
+    <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 600}} responsive data={plotData}>
+      <Line dataKey='rating' />
+    </LineChart>
+  )
+} 
 
-  const firstYear = gameYears.sort(
-    ((a, b) => a.localeCompare(b))
-  )[0]
-
-  const recentGames = await getMonthGames(user, recentYear);
-  const games = recentGames;
-
-  // Plot recent games
-  const plotData = games.games.map(g => ({
-    date: (new Date(g.end_time * 1000)).toLocaleString(),
-    opening: g.eco,
-    time_class: g.time_class,
-    colour: g.white.username == user ? 'white' : 'black',
-    result: g.white.username == user ? g.white.result : g.black.result,
-    rating: g.white.username == user? g.white.rating : g.black.rating
-
-}));
+export default function Ratings() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-stone-600">
@@ -47,6 +31,8 @@ export default async function Ratings() {
           Last game: {recentYear} <br />
 
           Last game: {recentGames.games[0].eco} <br />
+
+          plot: <Plotter />
 
           test: <ul>{plotData.map((d, i) => (<li key={i}>{d.date}</li>))}</ul>
 
