@@ -1,10 +1,10 @@
 'use client';
 import { user, ratings, plotData, recentGames, firstYear, recentYear } from "@/lib/stats";
-import { Line, LineChart, XAxis, YAxis } from 'recharts';
+import { Line, LineChart, XAxis, YAxis, Tooltip } from 'recharts';
 
 
 // Plot
-const time_class = 'blitz';
+const time_class = 'rapid';
 
 function Plotter() {
   const Data = plotData.filter(i => {
@@ -12,13 +12,20 @@ function Plotter() {
     return true;
 }); 
   return (
-    <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 600}} responsive data={Data}>
+    <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 1000}} responsive data={Data}
+    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
       <Line dataKey='rating' />
       <XAxis dataKey='date'
              label={{value: 'Date', position: 'insideBottom'}}
+             type = 'number'
+             domain={['auto', 'auto']}
+             tickFormatter={(ts) => new Date(ts).toLocaleDateString()}
+             angle={-90}
+             textAnchor="end"
       />
-      <YAxis label={{value: `${time_class} Rating (ELO)`, angle: -90, position: 'insideLeft'}}/>
-      {/* <Legend /> */}
+      <YAxis label={{value: `${time_class} Rating`, angle: -90, position: 'insideLeft'}}
+      domain={['dataMin - 50', 'dataMax + 50']}/>
+      <Tooltip />
     </LineChart>
   )
 } 
@@ -44,7 +51,7 @@ export default function Ratings() {
 
           plot: <Plotter />
 
-          test: <ul>{plotData.map((d, i) => (<li key={i}>{d.date}</li>))}</ul>
+          {/* test: <ul>{plotData.map((d, i) => (<li key={i}>{d.date.toLocaleString()}</li>))}</ul> */}
 
         </div>
       </main>

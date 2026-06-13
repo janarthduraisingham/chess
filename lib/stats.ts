@@ -76,7 +76,8 @@ export const games = recentGames;
 
 // Transform data for recent games
 export const plotData = games.games.map(g => ({
-  date: (new Date(g.end_time * 1000)).toLocaleString(),
+  date: (new Date(g.end_time * 1000)).getTime(),
+  prettyDate: new Date(g.end_time * 1000),
   opening: g.eco,
   time_class: g.time_class,
   colour: g.white.username == user ? 'white' : 'black',
