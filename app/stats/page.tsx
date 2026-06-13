@@ -4,10 +4,15 @@ import { Line, LineChart } from 'recharts';
 
 
 // Plot
+const type = 'rapid';
 
 function Plotter() {
+  const Data = plotData.filter(i => {
+    if (type !== i.time_class) return false;
+    return true;
+}); 
   return (
-    <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 600}} responsive data={plotData}>
+    <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 600}} responsive data={Data}>
       <Line dataKey='rating' />
     </LineChart>
   )
