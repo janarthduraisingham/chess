@@ -1,4 +1,4 @@
-import { getRatings, getGameMonths } from "@/lib/stats";
+import { getRatings, getGameMonths, getMonthGames } from "@/lib/stats";
 
 export default async function Ratings() {
   const user = 'jd12473';
@@ -17,6 +17,20 @@ export default async function Ratings() {
     ((a, b) => a.localeCompare(b))
   )[0]
 
+  const recentGames = await getMonthGames(user, recentYear);
+  const games = recentGames;
+
+  // Plot recent games
+  const plotData = games.games.map(g => ({
+    date: (new Date(g.end_time * 1000)).toLocaleString(),
+    opening: g.eco,
+    time_class: g.time_class,
+    colour: g.white.username == user ? 'white' : 'black',
+    result: g.white.username == user ? g.white.result : g.black.result,
+    rating: g.white.username == user? g.white.rating : g.black.rating
+
+}));
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-stone-600">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-stone-600 sm:items-start">
@@ -30,7 +44,11 @@ export default async function Ratings() {
           Rapid: {ratings.chess_rapid.last.rating} <br />
 
           First game: {firstYear} <br />
-          Last game: {recentYear}
+          Last game: {recentYear} <br />
+
+          Last game: {recentGames.games[0].eco} <br />
+
+          test: <ul>{plotData.map((d, i) => (<li key={i}>{d.date}</li>))}</ul>
 
         </div>
       </main>
