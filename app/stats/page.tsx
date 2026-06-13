@@ -1,8 +1,21 @@
-import getRatings from "@/lib/stats";
+import { getRatings, getGameMonths } from "@/lib/stats";
 
 export default async function Ratings() {
   const user = 'jd12473';
   const ratings = await getRatings(user);
+  const archives = await getGameMonths(user);
+
+  const gameYears = archives.archives.map(a => (
+    a.slice(-7)
+  ))
+
+  const recentYear = gameYears.sort(
+    ((a, b) => b.localeCompare(a))
+  )[0]
+
+  const firstYear = gameYears.sort(
+    ((a, b) => a.localeCompare(b))
+  )[0]
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-stone-600">
@@ -14,7 +27,10 @@ export default async function Ratings() {
           User: {user} <br />
           Bullet: {ratings.chess_bullet.last.rating} <br />
           Blitz: {ratings.chess_blitz.last.rating} <br />
-          Rapid: {ratings.chess_rapid.last.rating}
+          Rapid: {ratings.chess_rapid.last.rating} <br />
+
+          First game: {firstYear} <br />
+          Last game: {recentYear}
 
         </div>
       </main>

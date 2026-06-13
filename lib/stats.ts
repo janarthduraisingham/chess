@@ -4,7 +4,7 @@ type Stats = {
     chess_rapid: { last: {rating: number}}
 };
 
-export default async function getRatings(user: string): Promise<Stats> {
+export async function getRatings(user: string): Promise<Stats> {
     const result = await fetch(`https://api.chess.com/pub/player/${user}/stats`,
         { next: { revalidate: 600}}
     );
@@ -13,4 +13,12 @@ export default async function getRatings(user: string): Promise<Stats> {
 
 type Archives = {
     archives: string[]
+}
+
+export async function getGameMonths(user: string): Promise<Archives> {
+    const result = await fetch(`https://api.chess.com/pub/player/${user}/games/archives`,
+        { next: { revalidate: 600}}
+    );
+
+    return result.json();
 }
