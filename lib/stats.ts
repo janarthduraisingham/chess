@@ -10,3 +10,7 @@ export default async function getRatings(user: string): Promise<Stats> {
     );
     return result.json();
 }
+
+type Archives = {
+    archives: string[]
+}

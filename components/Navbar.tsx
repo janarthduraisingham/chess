@@ -7,7 +7,7 @@ export default function Navbar() {
                 <Link href='/' className='font-bold text-lg'>chessmate.</Link>
                 <Link href='/openings'>Openings journal.</Link>
                 <Link href='/reading'>Reading.</Link>
-                <Link href='/ratings'>Stats.</Link>
+                <Link href='/stats'>Stats.</Link>
             </div>
         </nav>
     )
