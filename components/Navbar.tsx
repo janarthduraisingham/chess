@@ -6,8 +6,8 @@ export default function Navbar() {
             <div className='flex gap-6'>
                 <Link href='/' className='font-bold text-lg'>chessmate.</Link>
                 <Link href='/openings'>Openings journal.</Link>
-                <Link href='/reading'>Reading.</Link>
-                <Link href='/stats'>Stats.</Link>
+                {/* <Link href='/reading'>Reading.</Link> */}
+                <Link href='/stats'>Stats tracking.</Link>
             </div>
         </nav>
     )
