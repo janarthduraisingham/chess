@@ -23,11 +23,11 @@ export async function getGameMonths(user: string): Promise<Archives> {
     return result.json();
 }
 
-type Games = {
+export type Games = {
     games : {
         end_time: number
-        time_control: string
-        time_class: string
+        timeControl: string
+        timeClass: string
         accuracies: {
             white: number
             black: number
@@ -79,7 +79,7 @@ export const plotData = games.games.map(g => ({
   date: (new Date(g.end_time * 1000)).getTime(),
   prettyDate: new Date(g.end_time * 1000),
   opening: g.eco,
-  time_class: g.time_class,
+  timeClass: g.time_class,
   colour: g.white.username == user ? 'white' : 'black',
   result: g.white.username == user ? g.white.result : g.black.result,
   rating: g.white.username == user? g.white.rating : g.black.rating
