@@ -27,7 +27,7 @@ export type Games = {
     games : {
         end_time: number
         timeControl: string
-        timeClass: string
+        time_class: string
         accuracies: {
             white: number
             black: number
