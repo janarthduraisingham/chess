@@ -71,10 +71,12 @@ export default function Ratings() {
               ))
             }
           </div>
+            
+            <h1 className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+              {timeClass}
+            </h1>
 
-          plot: <Plotter />
-
-          {/* test: <ul>{plotData.map((d, i) => (<li key={i}>{d.date.toLocaleString()}</li>))}</ul> */}
+            <Plotter />
 
         </div>
       </main>
