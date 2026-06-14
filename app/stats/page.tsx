@@ -36,7 +36,17 @@ export default function Ratings() {
         />
         <YAxis label={{value: `${timeClass} Rating`, angle: -90, position: 'insideLeft'}}
         domain={['dataMin - 50', 'dataMax + 50']}/>
-        <Tooltip />
+        <Tooltip 
+        labelFormatter={(ts) => new Date(ts).toDateString()}
+        contentStyle={{
+          backgroundColor: "#15803d"
+        }}
+        labelStyle={{
+          color: 'black'
+        }}
+        itemStyle={{
+          color: 'black'
+        }}/>
       </LineChart>
     )
   }
