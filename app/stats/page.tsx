@@ -67,7 +67,7 @@ export default function Ratings() {
           First game: {firstYear} <br />
           Last game: {recentYear} <br />
 
-          Last game: {recentGames.games[0].eco} <br />
+          {/* Last game: {recentGames.games[0].eco} <br /> */}
 
           <div>
             {
@@ -84,7 +84,7 @@ export default function Ratings() {
           </div>
             
             <h1 className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-              {timeClass}
+              {timeClass + ': most recent month'}
             </h1>
 
             <Plotter />
