@@ -23,7 +23,7 @@ export default function Ratings() {
       return false;
   })
     return (
-      <LineChart style={{ width: '100%', aspectRatio: 1.618, maxWidth: 1000}} responsive data={Data}
+      <LineChart style={{ width: '100%', aspectRatio: 0.8, maxWidth: 1000}} responsive data={Data}
       margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
         <Line dataKey='rating' />
         <XAxis dataKey='date'
@@ -33,13 +33,14 @@ export default function Ratings() {
               tickFormatter={(ts) => new Date(ts).toLocaleDateString()}
               angle={-90}
               textAnchor="end"
+              height={125}
         />
         <YAxis label={{value: `${timeClass} Rating`, angle: -90, position: 'insideLeft'}}
         domain={['dataMin - 50', 'dataMax + 50']}/>
         <Tooltip 
         labelFormatter={(ts) => new Date(ts).toDateString()}
         contentStyle={{
-          backgroundColor: "#15803d"
+          backgroundColor: "#6b21a8"
         }}
         labelStyle={{
           color: 'black'
@@ -66,14 +67,14 @@ export default function Ratings() {
           First game: {firstYear} <br />
           Last game: {recentYear} <br />
 
-          Last game: {recentGames.games[0].eco} <br />
+          {/* Last game: {recentGames.games[0].eco} <br /> */}
 
           <div>
             {
               filterTimeClasses.map(c => (
                 <button
                   key={c}
-                  className={`px-4 py-2 text-white ${timeClass == c ? 'font-bold underline bg-green-700' : 'bg-green-900'}`}
+                  className={`px-4 py-2 text-white ${timeClass == c ? 'font-bold underline bg-purple-700' : 'bg-purple-900'}`}
                   onClick={() => setTimeClass(c)}  
                   >
                   {c} 
@@ -83,7 +84,7 @@ export default function Ratings() {
           </div>
             
             <h1 className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-              {timeClass}
+              {timeClass + ': most recent month'}
             </h1>
 
             <Plotter />
