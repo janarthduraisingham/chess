@@ -23,7 +23,7 @@ export default function Ratings() {
       return false;
   })
     return (
-      <LineChart style={{ width: '100%', aspectRatio: 1.25, maxWidth: 1000}} responsive data={Data}
+      <LineChart style={{ width: '100%', aspectRatio: 0.8, maxWidth: 1000}} responsive data={Data}
       margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
         <Line dataKey='rating' />
         <XAxis dataKey='date'
