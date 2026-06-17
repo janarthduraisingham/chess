@@ -39,7 +39,7 @@ export default function Ratings() {
         <Tooltip 
         labelFormatter={(ts) => new Date(ts).toDateString()}
         contentStyle={{
-          backgroundColor: "#15803d"
+          backgroundColor: "#6b21a8"
         }}
         labelStyle={{
           color: 'black'
@@ -73,7 +73,7 @@ export default function Ratings() {
               filterTimeClasses.map(c => (
                 <button
                   key={c}
-                  className={`px-4 py-2 text-white ${timeClass == c ? 'font-bold underline bg-green-700' : 'bg-green-900'}`}
+                  className={`px-4 py-2 text-white ${timeClass == c ? 'font-bold underline bg-purple-700' : 'bg-purple-900'}`}
                   onClick={() => setTimeClass(c)}  
                   >
                   {c} 

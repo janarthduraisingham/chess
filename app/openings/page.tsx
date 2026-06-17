@@ -31,7 +31,7 @@ export default function Openings() {
               filterColours.map(c => (
                 <button
                   key={c}
-                  className={`px-4 py-2 text-white ${colour == c ? 'font-bold underline bg-green-700' : 'bg-green-900'}`}
+                  className={`px-4 py-2 text-white ${colour == c ? 'font-bold underline bg-purple-700' : 'bg-purple-900'}`}
                   onClick={() => setColour(c)}  
                   >
                   {c} 
@@ -44,7 +44,7 @@ export default function Openings() {
               filterParents.map(c => (
                 <button
                   key={c}
-                  className={`px-4 py-2 text-white ${parent == c ? 'font-bold underline bg-green-700' : 'bg-green-900'}`}
+                  className={`px-4 py-2 text-white ${parent == c ? 'font-bold underline bg-purple-700' : 'bg-purple-900'}`}
                   onClick={() => setParent(c)}  
                   >
                   {c} 
