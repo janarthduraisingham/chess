@@ -33,6 +33,7 @@ export default function Ratings() {
               tickFormatter={(ts) => new Date(ts).toLocaleDateString()}
               angle={-90}
               textAnchor="end"
+              height={125}
         />
         <YAxis label={{value: `${timeClass} Rating`, angle: -90, position: 'insideLeft'}}
         domain={['dataMin - 50', 'dataMax + 50']}/>
